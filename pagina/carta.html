@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <h1>La Lettre</h1>
     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 card position-relative">
         <img class="card-img-top img-fluid" src="https://picsum.photos/500/400">
         <div class="card-body text-center">
@@ -18,18 +19,19 @@
             <p class="card-text text-center">Descripción platillo</p>
             <h4 class="card-title text-center">$00000</h4>
 
-            <form class="" action="" onsubmit="return false">
-                <div class="p-3 border-top">
-                    <label class="" for="platillo1">Cantidad:</label>
-                    <input class="form-control text-center" placeholder="0" type="number" name="platillo1" id="platillo1">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <button class="col-3 btn btn-primary">-</button>
+                        <input class="col-6 text-center" type="number" id="plato1" value="0">
+                        <button class="col-3 btn btn-primary">+</button>
+                    </div>
                 </div>
-
-                <button class="btn btn-primary position-relative bottom-0 start-50 translate-middle-x d-block">Agregar
-                    al
-                    pedido</button>
-            </form>
+            </div>
         </div>
     </div>
+
+    <script src="manejo_pedido.js"></script>
 </body>
 
 </html>
