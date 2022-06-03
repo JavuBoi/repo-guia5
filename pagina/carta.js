@@ -1,3 +1,5 @@
+sessionStorage.clear()
+
 const platillos = {
     "plato1": {
         "nombre": "Platillo 1",
@@ -12,25 +14,31 @@ const platillos = {
         "precio": 30
     }
 };
-var pedido = [];
+
+var pedido = {};
 
 function agregar_pedido(id) {
-    let plato = {
-        "nombre": platillos[id].nombre,
-        "cantidad": document.getElementById(id).value,
-        "precio": platillos[id].precio
-    };
+    let cantidad = document.getElementById(id).value;
 
-    pedido.push(plato);
+    if (cantidad > 0) {
+        let plato = {
+            "nombre": platillos[id].nombre,
+            "cantidad": cantidad,
+            "precio": platillos[id].precio
+        };
+
+        pedido[id] = plato;
+    };
 };
 
 function realizar_pedido() {
-    sessionStorage.setItem("pedido", pedido);
+    console.log(pedido)
+    sessionStorage.setItem("pedido", JSON.stringify(pedido));
 };
 
-function cambiar_cantidad(id, accion) {
+function cambiar_valor(id, accion) {
     let plato = document.getElementById(id);
-    let cantidad = plato.value;
+    let cantidad = parseInt(plato.value);
 
     plato.value = accion == "+" ? cantidad + 1 : (cantidad > 0 && accion == "-" ? cantidad - 1 : 0);
 };
